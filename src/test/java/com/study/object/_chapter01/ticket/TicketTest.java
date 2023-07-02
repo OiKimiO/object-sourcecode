@@ -7,7 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
-public class TicketSellerTest {
+public class TicketTest {
     private TicketOffice ticketOffice;
     private Invitation invitation;
     private TicketSeller ticketSeller;
@@ -26,7 +26,7 @@ public class TicketSellerTest {
     }
 
     @Test
-    public void 초대장_없는_관람객에게_판매하세요(){
+    void 초대장_없는_관람객에게_판매하세요(){
         // given
         this.bag = new Bag(6000L);
         this.audience = new Audience(this.bag);
@@ -39,7 +39,7 @@ public class TicketSellerTest {
     }
 
     @Test
-    public void 초대장_있는_관람객에게_판매하세요(){
+    void 초대장_있는_관람객에게_판매하세요(){
         // given
         this.bag = new Bag(invitation,0L);
         this.audience = new Audience(this.bag);
@@ -49,5 +49,31 @@ public class TicketSellerTest {
 
         // then
         assertThat(this.bag.hasTicket()).isTrue();
+    }
+
+    @Test
+    void 초대장없는_관람객_티켓지불금액_6000(){
+        // given
+        this.bag = new Bag(6000L);
+        this.audience = new Audience(this.bag);
+
+        // when
+        Long ticketFee = audience.buy(this.ticketOffice.getTicket());
+
+        // then
+        assertThat(ticketFee).isEqualTo(6000L);
+    }
+
+    @Test
+    void 초대장있는_관람객_티켓지불금액_0(){
+        // given
+        this.bag = new Bag(invitation,6000L);
+        this.audience = new Audience(this.bag);
+
+        // when
+        Long audienceRemainder = audience.buy(this.ticketOffice.getTicket());
+
+        // then
+        assertThat(audienceRemainder).isEqualTo(0L);
     }
 }
