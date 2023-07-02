@@ -1,5 +1,6 @@
 package com.study.object._chapter01.ticket;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -26,54 +27,37 @@ public class TicketTest {
     }
 
     @Test
-    void 초대장_없는_관람객에게_판매하세요(){
+    public void 초대장_있는_관람객은_입장합니다(){
+        // given
+        this.bag = new Bag(this.invitation,0L);
+        this.audience = new Audience(this.bag);
+
+        // when
+        theater.enter(audience);
+    }
+
+    @Test
+    public void 초대장_없는_관람객_지불후_입장합니다(){
         // given
         this.bag = new Bag(6000L);
         this.audience = new Audience(this.bag);
 
         // when
         theater.enter(audience);
-
-        // then
-        assertThat(this.bag.hasTicket()).isTrue();
     }
 
     @Test
-    void 초대장_있는_관람객에게_판매하세요(){
+    public void 티켓구매_금액이_없는_관람객(){
         // given
-        this.bag = new Bag(invitation,0L);
+        this.bag = new Bag(0L);
         this.audience = new Audience(this.bag);
 
-        // when
-        theater.enter(audience);
+        // when, then
+        RuntimeException runtimeException = Assertions.assertThrows(RuntimeException.class, () -> {
+            this.theater.enter(audience);
+        });
 
-        // then
-        assertThat(this.bag.hasTicket()).isTrue();
+        assertThat(runtimeException.getMessage()).isEqualTo("보유 금액이 부족해 티켓을 구매할 수 없습니다.");
     }
 
-    @Test
-    void 초대장없는_관람객_티켓지불금액_6000(){
-        // given
-        this.bag = new Bag(6000L);
-        this.audience = new Audience(this.bag);
-
-        // when
-        Long ticketFee = audience.buy(this.ticketOffice.getTicket());
-
-        // then
-        assertThat(ticketFee).isEqualTo(6000L);
-    }
-
-    @Test
-    void 초대장있는_관람객_티켓지불금액_0(){
-        // given
-        this.bag = new Bag(invitation,6000L);
-        this.audience = new Audience(this.bag);
-
-        // when
-        Long audienceRemainder = audience.buy(this.ticketOffice.getTicket());
-
-        // then
-        assertThat(audienceRemainder).isEqualTo(0L);
-    }
 }
