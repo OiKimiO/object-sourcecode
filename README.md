@@ -1,4 +1,4 @@
-## Object Study 및 Review
+## Object Study
 - [책 소개](https://www.yes24.com/Product/Goods/74219491)
 - [객체지향의 사실과 오해 스터디](https://github.com/techbook-study/the-essence-of-object-orientation)를 진행하며 역할, 책임, 협력 관점에서 본 객체지향의 관점을 배울 수 있었으나 개념을 실제 코딩에 적용하는데 어려움이 있었습니다.
 - 이에 Object 스터디에선 개념이 적용된 예제를 코딩하며 객체 지향적인 코딩을 해보려 합니다.
