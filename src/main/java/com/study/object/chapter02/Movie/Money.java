@@ -3,7 +3,7 @@ package com.study.object.chapter02.Movie;
 import java.math.BigDecimal;
 
 public class Money {
-    public final Money ZERO = wons(0L);
+    public static final Money ZERO = Money.wons(0);
 
     private BigDecimal amount;
 
@@ -11,11 +11,11 @@ public class Money {
         this.amount = amount;
     }
 
-    public Money wons(long amount) {
+    public static Money wons(long amount) {
         return new Money(BigDecimal.valueOf(amount));
     }
 
-    public Money wons(double amount) {
+    public static Money wons(double amount) {
         return new Money(BigDecimal.valueOf(amount));
     }
 
