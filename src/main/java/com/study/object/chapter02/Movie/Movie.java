@@ -20,6 +20,10 @@ public class Movie {
     }
 
     public Money calculateMovieFee(Screening screening){
+        if(this.discountPolicy == null){
+            return this.fee;
+        }
+
         return fee.minus(this.discountPolicy.calculateDiscountAmount(screening));
     }
 }
