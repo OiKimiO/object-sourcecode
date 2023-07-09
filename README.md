@@ -20,6 +20,7 @@
 
 ## 목차
 - [챕터01 객체, 설계]( #chapter01-객체-설계 )
+- [챕터02 객체지향프로그래밍]( #chapter02-객체지향프로그래밍 )
 
 ## chapter01 객체, 설계
 - [학습코드](https://github.com/OiKimiO/object-sourcecode/pull/1)
@@ -29,6 +30,15 @@
 - [테스트코드](https://github.com/OiKimiO/object-sourcecode/blob/main/src/test/java/com/study/object/_chapter01/ticket/TicketTest.java)
 
 <img src="https://github.com/OiKimiO/object/assets/53805469/3561615a-4c65-42de-bac8-1e2e57a8dd05" style="width:100%;" />
+
+## chapter02 객체지향프로그래밍
+- [학습코드](https://github.com/OiKimiO/object-sourcecode/pull/3)
+
+<img src="https://github.com/OiKimiO/object-sourcecode/assets/53805469/014ba4e5-2cfc-40f0-8171-69dd41a66191" style="width:100%;" />
+
+- [테스트코드](https://github.com/OiKimiO/object-sourcecode/blob/main/src/test/java/com/study/object/chapter02/movie/MovieTest.java)
+
+<img src="https://github.com/OiKimiO/object-sourcecode/assets/53805469/4bae4fee-643a-4b01-835e-c511896fdba9" style="width:100%;" />
 
 ## 참고
 - 기계인간님의 [오브젝트 스터디](https://github.com/johngrib/study-objects)를 참고해 진행하였습니다.
