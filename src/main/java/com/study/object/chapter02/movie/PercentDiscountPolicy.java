@@ -1,4 +1,4 @@
-package com.study.object.chapter02.Movie;
+package com.study.object.chapter02.movie;
 
 public class PercentDiscountPolicy extends DefaultDiscountPolicy{
     private double percent;

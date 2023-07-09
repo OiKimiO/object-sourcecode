@@ -1,7 +1,11 @@
-package com.study.object.chapter02.Movie;
+package com.study.object.chapter02.movie;
+
+import lombok.ToString;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
+@ToString
 public class Money {
     public static final Money ZERO = Money.wons(0);
 
@@ -37,5 +41,25 @@ public class Money {
 
     public boolean isGreaterThan(Money other){
         return this.amount.compareTo(other.amount) >= 0;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o){
+            return true;
+        }
+
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Money money = (Money) o;
+
+        return amount.compareTo(money.amount) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(amount);
     }
 }

@@ -1,4 +1,4 @@
-package com.study.object.chapter02.Movie;
+package com.study.object.chapter02.movie;
 
 import java.util.ArrayList;
 import java.util.List;
