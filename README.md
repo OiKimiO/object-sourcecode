@@ -21,6 +21,8 @@
 ## 목차
 - [챕터01 객체, 설계]( #chapter01-객체-설계 )
 - [챕터02 객체지향프로그래밍]( #chapter02-객체지향프로그래밍 )
+- [챕터03 역할, 책임, 협력]( #chapter03-역할-책임-협력 )
+- [챕터04 설계 품질과 트레이드오프]( #chapter04-설계-품질과-트레이드오프 )
 
 ## chapter01 객체, 설계
 - [학습코드](https://github.com/OiKimiO/object-sourcecode/pull/1)
@@ -39,6 +41,16 @@
 - [테스트코드](https://github.com/OiKimiO/object-sourcecode/blob/main/src/test/java/com/study/object/chapter02/movie/MovieTest.java)
 
 <img src="https://github.com/OiKimiO/object-sourcecode/assets/53805469/4bae4fee-643a-4b01-835e-c511896fdba9" style="width:100%;" />
+
+## chapter03 역할, 책임, 협력
+- 3장은 코드가 없습니다.
+
+## chapter04 설계 품질과 트레이드오프
+- [학습코드](https://github.com/OiKimiO/object-sourcecode/pull/5)
+
+<img src="https://github.com/OiKimiO/object-sourcecode/assets/53805469/3fe66485-6ee5-4630-901e-a01ed0c21342" style="width:100%;" />
+
+- 테스트 코드는 추후 추가하겠습니다..!
 
 ## 참고
 - 기계인간님의 [오브젝트 스터디](https://github.com/johngrib/study-objects)를 참고해 진행하였습니다.
