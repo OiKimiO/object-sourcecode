@@ -45,10 +45,4 @@ public class Rectangle {
     public void setBottom(int bottom) {
         this.bottom = bottom;
     }
-
-    public void enlarge(int multiple){
-        this.right *= multiple;
-        this.bottom *= multiple;
-    }
-
 }

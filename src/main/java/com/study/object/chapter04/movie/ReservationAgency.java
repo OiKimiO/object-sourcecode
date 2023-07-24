@@ -5,26 +5,12 @@ import com.study.object.chapter02.movie.Money;
 public class ReservationAgency {
     public Reservation reserve(Screening screening, Customer customer, int audienceCount){
         Movie movie = screening.getMovie();
-
         boolean discountable = false;
         for (DiscountCondition condition : movie.getDiscountConditions()) {
             discountable = switch(condition.getType()){
-                                case PERIOD -> {
-                                    if(screening.getWhenScreened().getDayOfWeek().equals(condition.getDayOfWeek()) &&
-                                       screening.getWhenScreened().toLocalTime().compareTo(condition.getStartTime()) >= 0 &&
-                                       screening.getWhenScreened().toLocalTime().compareTo(condition.getEndTime()) <= 0
-                                       ){
-                                        yield true;
-                                    }
-                                    yield false;
-                                }
-                                case SEQUENCE -> {
-                                    if(screening.getSequence() == condition.getSequence()){
-                                        yield true;
-                                    }
-                                    yield false;
-                                }
-                                default -> false;
+                                case PERIOD -> condition.isDiscountable(screening.getWhenScreened().getDayOfWeek(),
+                                                                        screening.getWhenScreened().toLocalTime());
+                                case SEQUENCE -> condition.isDiscountable(screening.getSequence());
                             };
 
             if(discountable){
