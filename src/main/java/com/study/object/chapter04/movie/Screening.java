@@ -1,5 +1,7 @@
 package com.study.object.chapter04.movie;
 
+import com.study.object.chapter02.movie.Money;
+
 import java.time.LocalDateTime;
 
 public class Screening {
@@ -7,27 +9,27 @@ public class Screening {
     private int sequence;
     private LocalDateTime whenScreened;
 
-    public Movie getMovie() {
-        return movie;
-    }
-
-    public void setMovie(Movie movie) {
+    public Screening(Movie movie, int sequence, LocalDateTime whenScreened) {
         this.movie = movie;
-    }
-
-    public int getSequence() {
-        return sequence;
-    }
-
-    public void setSequence(int sequence) {
         this.sequence = sequence;
-    }
-
-    public LocalDateTime getWhenScreened() {
-        return whenScreened;
-    }
-
-    public void setWhenScreened(LocalDateTime whenScreened) {
         this.whenScreened = whenScreened;
+    }
+
+    public Money calculateFee(int audienceCount){
+        return switch(movie.getMovieType()){
+            case AMOUNT_DISCOUNT -> {
+                if(movie.isDiscountable(whenScreened, sequence)){
+                    yield movie.calculateAmountDiscountedFee().times(audienceCount);
+                }
+                yield movie.calculateNoneDiscountedFee().times(audienceCount);
+            }
+            case PERCENT_DISCOUNT -> {
+                if(movie.isDiscountable(whenScreened, sequence)){
+                    yield movie.calculatePercentDiscountedFee().times(audienceCount);
+                }
+                yield movie.calculateNoneDiscountedFee().times(audienceCount);
+            }
+            default -> movie.calculateNoneDiscountedFee().times(audienceCount);
+        };
     }
 }
